@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FinanceInfoServiceImplService WSDL service -->
+
+  <service name="FinanceInfoServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.crm.service.scf.ut.com"/>
+      <parameter name="wsdlServiceElement" value="FinanceInfoServiceImplService"/>
+      <parameter name="schemaQualified" value="http://impl.crm.service.scf.ut.com,http://dict.core.scf.ut.com,http://respbean.scf.ut.com,http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="FinanceInfoServiceImpl"/>
+      <parameter name="className" value="com.ut.scf.service.crm.impl.FinanceInfoServiceImpl"/>
+      <parameter name="wsdlPortType" value="FinanceInfoServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://impl.crm.service.scf.ut.com" xmlns:retNS="http://impl.crm.service.scf.ut.com" xmlns:rtns="http://respbean.scf.ut.com" name="getFinanceInfoById" qname="operNS:getFinanceInfoById" returnQName="retNS:getFinanceInfoByIdReturn" returnType="rtns:BaseRespBean" soapAction="">
+        <parameter xmlns:pns="http://impl.crm.service.scf.ut.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:recUid" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.crm.service.scf.ut.com" xmlns:retNS="http://impl.crm.service.scf.ut.com" xmlns:rtns="http://respbean.scf.ut.com" name="updateFinanceInfo" qname="operNS:updateFinanceInfo" returnQName="retNS:updateFinanceInfoReturn" returnType="rtns:BaseRespBean" soapAction="">
+        <parameter xmlns:pns="http://impl.crm.service.scf.ut.com" xmlns:tns="http://xml.apache.org/xml-soap" qname="pns:paramMap" type="tns:Map"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.crm.service.scf.ut.com" xmlns:retNS="http://impl.crm.service.scf.ut.com" xmlns:rtns="http://respbean.scf.ut.com" name="deleteFinanceInfo" qname="operNS:deleteFinanceInfo" returnQName="retNS:deleteFinanceInfoReturn" returnType="rtns:BaseRespBean" soapAction="">
+        <parameter xmlns:pns="http://impl.crm.service.scf.ut.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:recUid" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.crm.service.scf.ut.com" xmlns:retNS="http://impl.crm.service.scf.ut.com" xmlns:rtns="http://respbean.scf.ut.com" name="getFinanceInfoList" qname="operNS:getFinanceInfoList" returnQName="retNS:getFinanceInfoListReturn" returnType="rtns:BaseRespBean" soapAction="">
+        <parameter xmlns:pns="http://impl.crm.service.scf.ut.com" xmlns:tns="http://xml.apache.org/xml-soap" qname="pns:paramMap" type="tns:Map"/>
+        <parameter xmlns:pns="http://impl.crm.service.scf.ut.com" xmlns:tns="http://dict.core.scf.ut.com" qname="pns:page" type="tns:PageInfoBean"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.crm.service.scf.ut.com" xmlns:retNS="http://impl.crm.service.scf.ut.com" xmlns:rtns="http://respbean.scf.ut.com" name="insertFinanceInfo" qname="operNS:insertFinanceInfo" returnQName="retNS:insertFinanceInfoReturn" returnType="rtns:BaseRespBean" soapAction="">
+        <parameter xmlns:pns="http://impl.crm.service.scf.ut.com" xmlns:tns="http://xml.apache.org/xml-soap" qname="pns:paramMap" type="tns:Map"/>
+      </operation>
+      <parameter name="allowedMethods" value="insertFinanceInfo getFinanceInfoList getFinanceInfoById deleteFinanceInfo updateFinanceInfo"/>
+
+      <typeMapping xmlns:ns="http://dict.core.scf.ut.com" qname="ns:PageInfoBean" type="java:com.ut.scf.core.dict.PageInfoBean" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://respbean.scf.ut.com" qname="ns:BaseRespBean" type="java:com.ut.scf.respbean.BaseRespBean" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

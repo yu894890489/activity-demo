@@ -1,0 +1,80 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="F:\16.8.9workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\scfyd\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="FinanceInfoServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns3:operation name="getFinanceInfoById" qname="ns1:getFinanceInfoById" returnQName="ns1:getFinanceInfoByIdReturn" returnType="ns2:BaseRespBean" soapAction="" xmlns:ns1="http://impl.crm.service.scf.ut.com" xmlns:ns2="http://respbean.scf.ut.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:recUid" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns3:operation>
+  <ns1:operation name="updateFinanceInfo" qname="ns3:updateFinanceInfo" returnQName="ns3:updateFinanceInfoReturn" returnType="ns4:BaseRespBean" soapAction="" xmlns:ns3="http://impl.crm.service.scf.ut.com" xmlns:ns4="http://respbean.scf.ut.com">
+   <ns1:parameter qname="ns3:paramMap" type="ns5:Map" xmlns:ns5="http://xml.apache.org/xml-soap"/>
+  </ns1:operation>
+  <ns1:operation name="deleteFinanceInfo" qname="ns6:deleteFinanceInfo" returnQName="ns6:deleteFinanceInfoReturn" returnType="ns7:BaseRespBean" soapAction="" xmlns:ns6="http://impl.crm.service.scf.ut.com" xmlns:ns7="http://respbean.scf.ut.com">
+   <ns1:parameter qname="ns6:recUid" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getFinanceInfoList" qname="ns8:getFinanceInfoList" returnQName="ns8:getFinanceInfoListReturn" returnType="ns9:BaseRespBean" soapAction="" xmlns:ns8="http://impl.crm.service.scf.ut.com" xmlns:ns9="http://respbean.scf.ut.com">
+   <ns1:parameter qname="ns8:paramMap" type="ns10:Map" xmlns:ns10="http://xml.apache.org/xml-soap"/>
+   <ns1:parameter qname="ns8:page" type="ns11:PageInfoBean" xmlns:ns11="http://dict.core.scf.ut.com"/>
+  </ns1:operation>
+  <ns1:operation name="insertFinanceInfo" qname="ns12:insertFinanceInfo" returnQName="ns12:insertFinanceInfoReturn" returnType="ns13:BaseRespBean" soapAction="" xmlns:ns12="http://impl.crm.service.scf.ut.com" xmlns:ns13="http://respbean.scf.ut.com">
+   <ns1:parameter qname="ns12:paramMap" type="ns14:Map" xmlns:ns14="http://xml.apache.org/xml-soap"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="insertFinanceInfo getFinanceInfoList getFinanceInfoById deleteFinanceInfo updateFinanceInfo"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="FinanceInfoServiceImpl"/>
+  <ns1:parameter name="className" value="com.ut.scf.service.crm.impl.FinanceInfoServiceImpl"/>
+  <ns1:parameter name="wsdlServicePort" value="FinanceInfoServiceImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://impl.crm.service.scf.ut.com,http://dict.core.scf.ut.com,http://respbean.scf.ut.com,http://xml.apache.org/xml-soap"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://impl.crm.service.scf.ut.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="FinanceInfoServiceImplService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns15:PageInfoBean" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.ut.scf.core.dict.PageInfoBean" xmlns:ns15="http://dict.core.scf.ut.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns16:BaseRespBean" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.ut.scf.respbean.BaseRespBean" xmlns:ns16="http://respbean.scf.ut.com"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

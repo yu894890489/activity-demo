@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.crm.service.scf.ut.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.crm.service.scf.ut.com" xmlns:intf="http://impl.crm.service.scf.ut.com" xmlns:tns1="http://respbean.scf.ut.com" xmlns:tns2="http://dict.core.scf.ut.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.crm.service.scf.ut.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://respbean.scf.ut.com"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://dict.core.scf.ut.com"/>
+   <element name="getFinanceInfoById">
+    <complexType>
+     <sequence>
+      <element name="recUid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFinanceInfoByIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getFinanceInfoByIdReturn" type="tns1:BaseRespBean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFinanceInfo">
+    <complexType>
+     <sequence>
+      <element name="paramMap" type="apachesoap:Map"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFinanceInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="updateFinanceInfoReturn" type="tns1:BaseRespBean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFinanceInfo">
+    <complexType>
+     <sequence>
+      <element name="recUid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFinanceInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteFinanceInfoReturn" type="tns1:BaseRespBean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFinanceInfoList">
+    <complexType>
+     <sequence>
+      <element name="paramMap" type="apachesoap:Map"/>
+      <element name="page" type="tns2:PageInfoBean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFinanceInfoListResponse">
+    <complexType>
+     <sequence>
+      <element name="getFinanceInfoListReturn" type="tns1:BaseRespBean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertFinanceInfo">
+    <complexType>
+     <sequence>
+      <element name="paramMap" type="apachesoap:Map"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertFinanceInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="insertFinanceInfoReturn" type="tns1:BaseRespBean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://respbean.scf.ut.com"/>
+   <import namespace="http://dict.core.scf.ut.com"/>
+   <complexType name="mapItem">
+    <sequence>
+     <element name="key" nillable="true" type="xsd:anyType"/>
+     <element name="value" nillable="true" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="Map">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="apachesoap:mapItem"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://respbean.scf.ut.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://dict.core.scf.ut.com"/>
+   <complexType name="BaseRespBean">
+    <sequence>
+     <element name="result" type="xsd:int"/>
+     <element name="resultErrorMap" nillable="true" type="apachesoap:Map"/>
+     <element name="resultNote" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://dict.core.scf.ut.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://respbean.scf.ut.com"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <complexType name="PageInfoBean">
+    <sequence>
+     <element name="pageNumber" type="xsd:int"/>
+     <element name="pageSize" type="xsd:int"/>
+     <element name="totalPage" type="xsd:int"/>
+     <element name="totalRecord" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteFinanceInfoResponse">
+
+      <wsdl:part element="impl:deleteFinanceInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteFinanceInfoRequest">
+
+      <wsdl:part element="impl:deleteFinanceInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertFinanceInfoResponse">
+
+      <wsdl:part element="impl:insertFinanceInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFinanceInfoByIdRequest">
+
+      <wsdl:part element="impl:getFinanceInfoById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFinanceInfoListResponse">
+
+      <wsdl:part element="impl:getFinanceInfoListResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertFinanceInfoRequest">
+
+      <wsdl:part element="impl:insertFinanceInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFinanceInfoResponse">
+
+      <wsdl:part element="impl:updateFinanceInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFinanceInfoByIdResponse">
+
+      <wsdl:part element="impl:getFinanceInfoByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFinanceInfoRequest">
+
+      <wsdl:part element="impl:updateFinanceInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFinanceInfoListRequest">
+
+      <wsdl:part element="impl:getFinanceInfoList" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FinanceInfoServiceImpl">
+
+      <wsdl:operation name="getFinanceInfoById">
+
+         <wsdl:input message="impl:getFinanceInfoByIdRequest" name="getFinanceInfoByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFinanceInfoByIdResponse" name="getFinanceInfoByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFinanceInfo">
+
+         <wsdl:input message="impl:updateFinanceInfoRequest" name="updateFinanceInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateFinanceInfoResponse" name="updateFinanceInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFinanceInfo">
+
+         <wsdl:input message="impl:deleteFinanceInfoRequest" name="deleteFinanceInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteFinanceInfoResponse" name="deleteFinanceInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFinanceInfoList">
+
+         <wsdl:input message="impl:getFinanceInfoListRequest" name="getFinanceInfoListRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFinanceInfoListResponse" name="getFinanceInfoListResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertFinanceInfo">
+
+         <wsdl:input message="impl:insertFinanceInfoRequest" name="insertFinanceInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertFinanceInfoResponse" name="insertFinanceInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FinanceInfoServiceImplSoapBinding" type="impl:FinanceInfoServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getFinanceInfoById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFinanceInfoByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFinanceInfoByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFinanceInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateFinanceInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateFinanceInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFinanceInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteFinanceInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteFinanceInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFinanceInfoList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFinanceInfoListRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFinanceInfoListResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertFinanceInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertFinanceInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertFinanceInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FinanceInfoServiceImplService">
+
+      <wsdl:port binding="impl:FinanceInfoServiceImplSoapBinding" name="FinanceInfoServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/scfyd/services/FinanceInfoServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
